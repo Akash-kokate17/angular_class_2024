@@ -1,0 +1,13 @@
+<p>comments works!</p>
+
+<table class="table table-bordered table-striped table-responsive table-hover">
+    <tbody class="text-center">
+        @for(comment of comments;track comment.id){
+            <tr>
+                <td>{{comment.id}}</td>
+                <td>{{comment.name}}</td>
+                <td>{{comment.email}}</td>
+            </tr>
+        }
+    </tbody>
+</table>

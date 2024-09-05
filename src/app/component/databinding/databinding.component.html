@@ -1,0 +1,29 @@
+<h2 class="text-center">databinding component</h2>
+
+<h4>My Name is :: {{name}}</h4>
+<h4>My Name Is :: <span [innerHtml]="name"></span></h4>
+<h4>My Name Is :: <span bind-innerHtml="name"></span></h4>
+
+
+<input value="Akash"/>
+<input value="{{name}}" class="ms-2"/>
+<input [value]="name" class="ms-2"/>
+<input bind-value="name" class="ms-2"/>
+<input [(ngModel)]="name" class="ms-2"/><br>
+<!-- <input type="number" on-change="changedUserId()" [(ngModel)]="userId" class="m-2 text-center"/> -->
+<input type="number" (ngModelChange)="changedUserId($event)" [(ngModel)]="userId" class="m-2 text-center"/>
+<h4 class="ms-4">{{userId}}</h4>
+<br>
+
+<img src="{{img_url}}" class="w-25 mt-4 h-25" />
+<img [src]="img_url" class="w-25 mt-4 h-25 ms-3" />
+<img bind-src="img_url" class="w-25 mt-4 h-25 ms-3" />
+<br>
+
+<button class="btn btn-primary m-2" disabled="true">btn1</button>
+<button class="btn btn-primary m-2" disabled="{{flag}}">btn2</button>
+<button class="btn btn-primary m-2" [disabled]="flag">btn3</button>
+<button class="btn btn-primary m-2" bind-disabled="flag">btn4</button>
+<button class="btn btn-primary m-2" (click)="f1()">btn5</button>
+<button class="btn btn-primary m-2" on-click="f1()">btn6</button>
+<button class="btn btn-primary m-2" (click)="changeName()">changeName</button>

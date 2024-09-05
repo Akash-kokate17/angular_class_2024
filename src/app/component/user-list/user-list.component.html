@@ -1,0 +1,25 @@
+<table class="table table-bordered table-striped table-responsive table-hover">
+    <thead class="text-center">
+     <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>phone</th>
+      <th>delete</th>
+     </tr>
+    </thead>
+    <tbody class="text-center">
+      @for(user of users;track user.id){
+      <tr>
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.address.city}}</td>
+          <td>{{user.phone}}</td>
+          <td class="btn btn-danger m-1"(click)="deleteUser(user.id)">delete</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  

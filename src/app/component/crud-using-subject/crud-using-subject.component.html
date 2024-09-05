@@ -1,0 +1,20 @@
+<form class="d-flex justify-content-center align-items-center w-100">
+  <div class="row">
+    <div>
+      <label>Name</label>
+      <input #uName type="text" placeholder="Type Name" class="form-control " />
+    </div>
+    <div>
+      <label>Phone No:</label>
+      <input
+        type="number"
+        placeholder="Type Phone No:"
+        class="form-control"
+        #phoneNo
+      />
+    </div>
+    <div class="text-center mt-2">
+        <button class="btn btn-primary" (click)="addNewEmp(uName.value,+phoneNo.value)">add Emp</button>
+    </div>
+  </div>
+</form>

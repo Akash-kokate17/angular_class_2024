@@ -1,0 +1,17 @@
+<h1 class="text-center">This is demo2 component </h1>
+<hr/>
+<ng-content></ng-content>
+
+<div *ngIf="flag;else falseCond">
+    flag is true
+</div>
+
+<ng-template #falseCond>
+    flag is false
+</ng-template>
+
+<div *ngFor="let car of cars; let i = index">
+    <ng-container *ngIf="i%2==0">
+        {{car}}
+    </ng-container>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered table-striped table-responsive text-center">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>salary</th>
+                    <th>gender</th>
+                    <th>All Emp</th>
+                    <th>All male</th>
+                    <th>All Female</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(employee of employees;track employee.id){
+                    <tr>
+                        <td>{{employee.id}}</td>
+                        <td>{{employee.name}}</td>
+                        <td>{{employee.sal}}</td>
+                        <td>{{employee.gender}}</td>
+                        <td><button class="btn btn-primary" (click)="allEmp()">allEmployees</button></td>           
+                        <td><button class="btn btn-success" (click)="allMaleEmp()">maleEmployees</button></td>           
+                        <td><button class="btn btn-danger" (click)="allFemaleEmp()">femaleEmployees</button></td>           
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

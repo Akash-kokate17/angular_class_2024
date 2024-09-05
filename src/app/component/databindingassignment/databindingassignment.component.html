@@ -1,0 +1,44 @@
+<p class="text-center" [hidden]="isParagraph">
+  Hi everyone I am "Akash"
+</p>
+
+<div class="w-100 text-center">
+  <button class="text-center btn btn-danger" on-click="togglePara()">Toggle</button>
+</div>
+
+<div class="container w-100">
+  <textarea
+    class="mt-4 h-100 w-100"
+    [(ngModel)]="text"
+    (ngModelChange)="onChangeHandler($event)"
+    ></textarea
+  >
+  <p>{{ count }} remaining characters</p>
+</div>
+
+<hr>
+<input type="number" [(ngModel)]="number1"/>
+<input type="number" [(ngModel)]="number2" class="m-2"/>
+
+Addition of {{number1}} + {{number2}} = {{number1 + number2}}
+
+<hr>
+<input [type]="show? 'text':'password'"/>
+<button class="btn btn-danger ms-1" (click)="togglePass()">toggle password</button><br><hr>
+
+<button class="text-center btn btn-primary" (click)="toggleDayNightMode()">{{dayNightMode? "dark":"light"}}</button>
+<br><hr>
+
+
+<h3>{{counter}}</h3>
+
+<button class="btn btn-primary m-1" (click)="increment()">Increment</button>
+<button class="btn btn-success m-1" (click)="decrement()">Decrement</button>
+<button class="btn btn-danger m-1" (click)="reset()">Reset</button>
+<br><hr>
+
+
+<input type="number" class="m-1" #num1>
+<input type="number" class="m-1" ref-num2>
+<button class="btn btn-danger m-1" (click)="add(num1.value,num2.value)">addition</button>
+

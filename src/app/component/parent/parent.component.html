@@ -1,0 +1,27 @@
+<div class="container border p-3 text-center">
+  <div class="row">
+    <div class="col">
+      my own data is {{ a }}
+      <input type="number" [(ngModel)]="a" />
+    </div>
+    <div>my child's data b is {{ child1.b }}</div>
+    <div>
+      my child's 2 data name is <b>{{ parentName }}</b>
+      <button (click)="flag = !flag">toggle {{ flag }}</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 border">
+      <app-child1 [a]="a" [childf1]="f1" #child1></app-child1>
+    </div>
+    <div class="col-sm-6 border">
+      @if(flag){
+      <app-child2
+        [a]="a"
+        [child1]="child1"
+        (nameEvent)="receivedDataFromChild($event)"
+      ></app-child2>
+      }
+    </div>
+  </div>
+</div>

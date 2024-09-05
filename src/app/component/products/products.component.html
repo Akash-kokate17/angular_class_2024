@@ -1,0 +1,34 @@
+<h1 class="text-center">products works</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 offset-3">
+       <input [(ngModel)]='searchVal' (ngModelChange)="findProduct($event)" class="form-control" placeholder="search..."/>
+        </div>
+        <div class="col-sm-3">
+            <button class="btn btn-primary mx-2" (click)="sortAsc()">sort asc</button>
+            <button class="btn btn-danger" (click)="sortDesc()">sort dsc</button>
+        </div>
+    </div>
+    <hr/>
+  <div class="row">
+    @for(prod of myProducts | paginate: { itemsPerPage: 4, currentPage: p };track prod.id){
+    <div class="col-sm-3">
+      <div class="card text-center m-1">
+        <img [src]="prod.image" class="card-img-top img-fluid" style="height: 200px;"/>
+        <div class="card-body">
+      <h1 class="card-title text-truncate">{{prod.category}}</h1>
+      <p class="card-text text-truncate">{{prod.title}}</p>
+      <p class="card-text text-truncate">{{prod.description}}</p>
+      <p class="card-text  text-truncate">{{prod.price}}</p>
+      <p class="card-text  text-truncate">{{prod.rating.rate}}</p>
+      <a href="" class="btn btn-primary" [routerLink]="['/productsDetails',prod.id]">details</a>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+  <div class="text-center ">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>  
+  </div>
+</div>

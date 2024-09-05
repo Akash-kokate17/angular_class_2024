@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="row">
+      @for(category of allCategories;track $index){
+        <div class="col centerItem">
+         <app-category-item [category]="category"></app-category-item>
+        </div>
+      }
+    </div>
+    </div>

@@ -1,0 +1,10 @@
+<table class="table table-striped">
+    <tbody>
+        @for(emp of employees; track $index){
+            <tr>
+                <td>{{emp.name}}</td>
+                <td>{{emp.phone}}</td>
+            </tr>
+        }
+    </tbody>
+</table>

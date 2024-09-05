@@ -1,0 +1,98 @@
+<h1 class="text-center">Angular Pipes</h1>
+<hr />
+
+<h4>{{ name }}</h4>
+<h4>{{ name | uppercase }}</h4>
+<h4>{{ name | lowercase }}</h4>
+<h4>{{ name | titlecase }}</h4>
+<h4>{{ sal }}</h4>
+<h4>My Sal Is : {{ sal | currency }}</h4>
+<h4>My Sal Is : {{ sal | currency : "INR" }}</h4>
+<h4>My Sal Is : {{ sal | currency : "&euro;" }}</h4>
+<h4>My Sal Is : {{ sal | currency : "&#20803;" }}</h4>
+<hr />
+<h4>{{ today }}</h4>
+<h4>{{ today | date : "shortDate" }}</h4>
+<h4>{{ today | date : "mediumDate" }}</h4>
+<h4>{{ today | date : "longDate" }}</h4>
+<h4>{{ today | date : "fullDate" }}</h4>
+<h4>{{ today | date : "shortTime" }}</h4>
+<h4>{{ today | date : "mediumTime" }}</h4>
+<h4>{{ today | date : "mediumTime" }}</h4>
+<h4>{{ today | date : "longTime" }}</h4>
+<h4>fullTime : {{ today | date : "fullTime" }}</h4>
+<!-- input | pipeName : 'arg1' :'arg2' -->
+<hr />
+<h4>{{ 12.111222333 | number : "3.2-5" }}</h4>
+<h4>{{ 1.2 | number : "3.2-5" }}</h4>
+<h4>{{ 1.23456789 | number : "3.2-5" }}</h4>
+<hr />
+<h4>{{ 2.4 | percent }}</h4>
+<h4>{{ 0.25 | percent }}</h4>
+<hr />
+<h4>{{ user }}</h4>
+<h4>{{ user | json }}</h4>
+@for(entry of user | keyvalue ;track $index){
+<h4>{{ entry.key}}=== {{ entry.value }}</h4>
+}
+<hr />
+<h4>{{ arr }}</h4>
+<h4>{{ arr | slice : 2 }}</h4>
+<h4>{{ arr | slice : 2 : 4 }}</h4>
+<hr />
+<textarea [(ngModel)]="msg" maxlength="100"></textarea>
+<h4>{{ msg | remaining }}</h4>
+<textarea [(ngModel)]="msg2" maxlength="200"></textarea>
+<h4>{{ msg2 | remaining : 200 }}</h4>
+
+<hr />
+
+<input type="number" [(ngModel)]="inputVal" />
+<h4>{{ inputVal | ordinal }}</h4>
+
+<hr />
+
+<input type="date" [(ngModel)]="yourAge" placeholder=" birth date dd/mm/yyyy" />
+<h4>Your age is {{ yourAge | age }}</h4>
+
+<hr />
+<div class="d-flex justify-content-center">
+  <input
+    type="text"
+    [(ngModel)]="searchVal"
+    class="form-control m-2 w-50 fw-bold"
+    placeholder="search..."
+  />
+</div>
+<table class="table table-hover table-striped table-responsive">
+  <tbody class="text-center fw-bolder">
+    @for(emp of employees | search : searchVal ; track $index){
+    <tr>
+      <td>{{ emp.gender | salutation }}</td>
+      <td>{{ emp.name }}</td>
+      <td>{{ emp.sal }}</td>
+      <td>{{ emp.gender }}</td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+<hr />
+
+<h4>{{ longStr | truncate }}</h4>
+<h4>{{ longStr | truncate : 12 }}</h4>
+<h4>{{ longStr | truncate : 12 : true }}</h4>
+<h4>{{ longStr | truncate : 12 : false : "***" }}</h4>
+
+<input type="number" [(ngModel)]="num"/>
+<h4>Num value is {{num}}</h4>
+
+<hr/>
+
+<h4>
+    @for(num of arr1 | mySort ;track $index){
+<span>{{num}} &nbsp;</span>
+    }
+</h4>
+<input type="number" #num/>
+<button (click)="arr1.push(+num.value)">add</button>

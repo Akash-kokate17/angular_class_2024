@@ -1,0 +1,71 @@
+<h1 class="text-center">Form Assignment</h1>
+
+<div class="d-flex justify-content-center align-items-center ">
+    <form (submit)="submitHandler(myForm.value)" #myForm='ngForm' class="form-container border border-3 col-sm-5 p-4 rounded-3 text-center">
+       <div>
+        <label>First Name: </label><br/>
+        <input name="firstName" #fName="ngModel" type="text" class="form-control border border-2 border-secondary" required ngModel/>
+        <span *ngIf="fName.touched && fName.hasError('required')" class="text-danger">First Name is required</span>
+       </div>
+       <div>
+        <label>Last Name: </label> <br/>
+        <input name="lastName" #lName="ngModel" type="text" class="form-control border border-2 border-secondary" required ngModel/>
+        <span *ngIf="lName.touched && lName.hasError('required')" class="text-danger">Last Name is required</span>
+       </div>
+       <div>
+        <label>Email: </label><br/>
+        <input name="email" type="email" class="form-control border border-2 border-secondary" minlength="10" required ngModel/>
+        <span *ngIf="myForm.controls['email']?.touched && myForm.controls['email']?.hasError('required')" class="text-danger">Email is required</span>
+       </div>
+       <div>
+        <label>Password: </label> <br/>
+        <input #password="ngModel" name="password" type="password" class="form-control border border-2 border-secondary" minlength="8" required ngModel/>
+        <span *ngIf="password.hasError('required') && password.touched" class="text-danger">Password is required</span>
+        <span *ngIf="password.hasError('minlength') && password.dirty " class="text-danger">Password have min length 8</span>
+       </div>
+       <div>
+        <label>City: </label><br/>
+        <input #city="ngModel" name="city" type="text" list="browsers" class="form-control border border-2 border-secondary"required ngModel/>
+        <span *ngIf="city.hasError('required') && city.touched" class="text-danger">City Is required</span>
+        <datalist id="browsers">
+            <option value="pune">
+            <option value="mumbai">
+            <option value="hyderabad">
+            <option value="bangalore">
+            <option value="delhi">
+            </datalist>
+    </div>
+    <div>
+        <label>State: </label> <br/>
+        <input #state="ngModel" name="state" type="text" list="browsers-state" class="form-control border border-2 border-secondary" required ngModel/>
+        <span *ngIf="state.hasError('required') && state.touched" class="text-danger">State Is required</span>
+        <datalist id="browsers-state">
+            <option value="Maharashtra">
+            <option value="U.P">
+            <option value="Punjab">
+            <option value="Karnataka">
+            <option value="Punjab">
+            </datalist>
+     </div>
+     <div>
+        <label>pinCode: </label><br/>
+        <input #pinCode="ngModel" name="pinCode" type="text" minlength="6" maxlength="6" class="form-control border border-2 border-secondary"required ngModel/>
+        <span *ngIf="pinCode.hasError('required') && pinCode.touched" class="text-danger">pinCode Is required</span>
+        <span *ngIf="pinCode.hasError('minlength') && pinCode.touched && pinCode.dirty" class="text-danger">pinCode have min & max length 5</span>
+       </div>
+       <div class="">
+           <label>Gender: </label><br>
+       <div class="text-cente">
+        <span>Male:</span><input name="gender" value="male" type="radio" class="mx-2 border border-2 border-secondary" ngModel required/>
+        <span>Female:</span><input name="gender" value="female" type="radio" class=" mx-2 border border-2 border-secondary" ngModel required/>
+        <span *ngIf="!myForm.controls['gender']?.value && myForm.controls['gender'].touched">Gender is required</span>
+       </div>
+       </div>
+     <div>
+        <button type="submit" class="btn btn-success" [disabled]="myForm.invalid">Submit</button>
+     </div>
+     <div>
+        <button type="reset" class="btn btn-danger">Reset</button>
+     </div>
+    </form>
+</div>

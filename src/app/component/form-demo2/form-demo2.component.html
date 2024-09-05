@@ -1,0 +1,62 @@
+<h2 class="text-center">form demo-2</h2>
+
+<div class="col-sm-6 offset-3 border border-3 p-3">
+  <form [formGroup]="registerFrom" (submit)="formSubmit(registerFrom)">
+    <p>
+      first name : <input type="text" formControlName="fName" />
+      <span
+        class="text-danger"
+        *ngIf="
+          registerFrom.controls['fName'].dirty &&
+          registerFrom.controls['fName'].hasError('required')
+        "
+        >first name is required</span
+      >
+    </p>
+    <p>
+      last name : <input type="text" formControlName="lName" />
+      <span
+        class="text-danger"
+        *ngIf="
+          registerFrom.controls['lName'].touched &&
+          registerFrom.controls['lName'].hasError('minlength')
+        "
+        >last name is required & min length 5</span
+      >
+    </p>
+    <p>
+      age : <input type="text" formControlName="age" />
+      <span
+        class="text-danger"
+        *ngIf="
+          registerFrom.controls['age'].dirty &&
+          registerFrom.controls['age'].hasError('ageRange')
+        "
+        >min age is 18 and max age is 60</span
+      >
+    </p>
+    <p>email : <input type="email" formControlName="email" />
+      <span
+      class="text-danger"
+      *ngIf="
+        registerFrom.controls['email'].dirty &&
+        registerFrom.controls['email'].hasError('required')
+      "
+      >email is required</span
+    >
+    <span
+    class="text-danger"
+    *ngIf=" registerFrom.controls['email'].dirty &&
+      registerFrom.controls['email'].hasError('userExist')
+    "
+    >email is already exist</span>
+  </p>
+    <fieldset formGroupName="address">
+      <p>city : <input type="text" formControlName="city" /></p>
+      <p>state : <input type="text" formControlName="state" /></p>
+      <p>pin : <input type="text" formControlName="pin" /></p>
+    </fieldset>
+    <button type="submit">submit</button>
+  </form>
+  <p>{{ registerFrom.value | json }}</p>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row text-center" style="border:2px solid rgb(184, 169, 169);border-radius: 15px; margin-top: 5px;">
+      <div class="my-2">
+        <input class="form-control text-center" placeholder="Name" [(ngModel)]="name"/>
+      </div>
+      <div class="my-2">
+        <input type="email" class="form-control text-center" placeholder="email" [(ngModel)]="email"/>
+      </div>
+      <div class="my-2">
+       <input type="text" class="form-control text-center" placeholder="address" [(ngModel)]="address"/>
+      </div>
+      <div class="my-2">
+        <input type="number" class="form-control text-center" placeholder="phone" [(ngModel)]="phone"/>
+      </div>
+      <div class="mb-2">
+        <button class="btn btn-success"(click)="addUserDetail()">Add User</button>
+      </div>
+    </div>
+</div>
